@@ -1,3 +1,5 @@
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.scss';
@@ -6,6 +8,8 @@ import TodoApp from './TodoApp';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <TodoApp />
+    <Router>
+      <TodoApp />
+    </Router>
   </React.StrictMode>,
 );
