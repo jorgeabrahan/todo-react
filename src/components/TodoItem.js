@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-import styles from './styles/modules/TodoItem.module.scss';
+import styles from '../styles/modules/TodoItem.module.scss';
 
 export default function TodoItem({
   title, completed, onCheck, onDelete, onEdit,
