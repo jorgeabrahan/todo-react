@@ -3,7 +3,7 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './styles/index.scss';
-import TodoApp from './routes/Home';
+import TodoApp from './TodoApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
