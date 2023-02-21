@@ -21,21 +21,39 @@ const Navbar = () => {
     <>
       <nav className="navbar">
         <ul>
-          {links.map((link) => (
-            <React.Fragment key={link.text}>
-              {link.path === 'login' ? (
-                !user && (
+          {links.map((link) => {
+            let li;
+            if (link.path === 'login') {
+              if (!user) {
+                li = (
                   <li>
                     <NavLink to={link.path}>{link.text}</NavLink>
                   </li>
-                )
-              ) : (
+                );
+              }
+            } else if (link.path === 'profile') {
+              if (user) {
+                li = (
+                  <li>
+                    <NavLink to={link.path}>
+                      {link.text}
+                    </NavLink>
+                  </li>
+                );
+              }
+            } else {
+              li = (
                 <li>
                   <NavLink to={link.path}>{link.text}</NavLink>
                 </li>
-              )}
-            </React.Fragment>
-          ))}
+              );
+            }
+            return (
+              <React.Fragment key={link.text}>
+                {li}
+              </React.Fragment>
+            );
+          })}
         </ul>
       </nav>
       {user && (

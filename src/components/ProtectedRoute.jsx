@@ -13,5 +13,6 @@ const ProtectedRoute = ({ children }) => {
 export default ProtectedRoute;
 
 ProtectedRoute.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.object.isRequired).isRequired,
+  // eslint-disable-next-line react/forbid-prop-types
+  children: PropTypes.objectOf(PropTypes.any).isRequired,
 };
