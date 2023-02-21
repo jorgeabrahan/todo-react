@@ -1,6 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { Routes, Route } from 'react-router-dom';
 import NotMatch from './routes/NotMatch';
+import ProtectedRoute from './components/ProtectedRoute';
 
 import Layout from './Layout';
 import Home from './routes/Home';
@@ -17,7 +18,14 @@ const TodoApp = () => (
         <Route path=":slug" element={<SinglePage />} />
       </Route>
       <Route path="login" element={<Login />} />
-      <Route path="profile" element={<Profile />} />
+      <Route
+        path="profile"
+        element={(
+          <ProtectedRoute>
+            <Profile />
+          </ProtectedRoute>
+        )}
+      />
       <Route path="*" element={<NotMatch />} />
     </Route>
   </Routes>
