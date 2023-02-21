@@ -1,4 +1,5 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
+/* eslint-disable import/no-extraneous-dependencies */
+import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useAuthContext } from '../context/AuthContext';
 
@@ -19,16 +20,19 @@ const Navbar = () => {
       <nav className="navbar">
         <ul>
           {links.map((link) => (
-            <li key={link.text}>
-              <NavLink
-                to={link.path}
-                style={({ isActive }) => ({
-                  color: isActive ? 'red' : undefined,
-                })}
-              >
-                {link.text}
-              </NavLink>
-            </li>
+            <React.Fragment key={link.text}>
+              {link.path === 'login' ? (
+                !user && (
+                  <li>
+                    <NavLink to={link.path}>{link.text}</NavLink>
+                  </li>
+                )
+              ) : (
+                <li>
+                  <NavLink to={link.path}>{link.text}</NavLink>
+                </li>
+              )}
+            </React.Fragment>
           ))}
         </ul>
       </nav>
