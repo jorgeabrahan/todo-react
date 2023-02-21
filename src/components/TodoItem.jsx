@@ -2,12 +2,14 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
 import styles from '../styles/modules/TodoItem.module.scss';
+import { useAuthContext } from '../context/AuthContext';
 
 export default function TodoItem({
   title, completed, onCheck, onDelete, onEdit,
 }) {
   const [editing, setEditing] = useState(false);
   const [edit, setEdit] = useState(title);
+  const { user } = useAuthContext();
   function onSubmit(e) {
     e.preventDefault();
     e.target.reset();
@@ -28,7 +30,7 @@ export default function TodoItem({
           defaultChecked={completed}
           onClick={({ target }) => onCheck(target.checked)}
         />
-        <button type="button" onClick={() => setEditing(true)}>Edit</button>
+        {user && <button type="button" onClick={() => setEditing(true)}>Edit</button>}
         <button type="button" onClick={onDelete}>
           Delete
         </button>
