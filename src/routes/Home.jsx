@@ -4,11 +4,9 @@ import '../styles/TodoApp.scss';
 
 export default function Home() {
   return (
-    <div className="wrapper">
-      <div className="todos">
-        <Header />
-        <TodosLogic />
-      </div>
+    <div className="todos">
+      <Header />
+      <TodosLogic />
     </div>
   );
 }
