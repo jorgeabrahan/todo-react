@@ -12,3 +12,12 @@ body {
   height: 100vh;
   font-weight: 400;
 }
+
+a {
+  color: #333;
+  text-decoration: none;
+}
+/* Active route */
+.active {
+  color: #8a4baf;
+}

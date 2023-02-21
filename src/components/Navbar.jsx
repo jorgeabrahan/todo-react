@@ -15,6 +15,9 @@ const Navbar = () => (
         <li key={link.text}>
           <NavLink
             to={link.path}
+            style={({ isActive }) => ({
+              color: isActive ? 'red' : undefined,
+            })}
           >
             {link.text}
           </NavLink>
